@@ -1,7 +1,17 @@
 import telebot
 import asyncio
 from telebot import types
-#bot = telebot.TeleBot("")
+bot = telebot.TeleBot("8286579752:AAFBUEPL2CSydmxMrW2kVfpIUZv2BLoS8vw")
+
+#========= bot =========
+@bot.message_handler(commands=["start"])
+def start(message):
+    markup = types.ReplyKeyboardMarkupeboard(realsize_keyboard = True)
+    btn1 = types.KeyboardButton("Добавить объявление")
+    btn2 = types.KeyboardButton("Убрать объявление")
+    markup.add(btn1,btn2)
+
+bot.polling(none_stop=True, interval=0)
 
 #========= main =========
 print("Введите число выводов n:")
