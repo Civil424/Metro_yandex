@@ -4,17 +4,23 @@ from telebot import types
 bot = telebot.TeleBot("8286579752:AAFBUEPL2CSydmxMrW2kVfpIUZv2BLoS8vw")
 
 #========= bot =========
+
 @bot.message_handler(commands=["start"])
+
 def start(message):
     markup = types.ReplyKeyboardMarkup(resize_keyboard = True)
     btn1 = types.KeyboardButton("Добавить объявление")
     btn2 = types.KeyboardButton("Убрать объявление")
+    btn3 = types.KeyboardButton("Список всех объявления")
     markup.add(btn1,btn2)
+    bot.send_message(message.from_user.id, "Йоооу", reply_markup = markup)
+
 
 bot.polling(none_stop=True, interval=0)
 
 
 #========= main =========
+
 print("Введите число выводов n:")
 n = int(input())
 print("Введите число выводов k:")
